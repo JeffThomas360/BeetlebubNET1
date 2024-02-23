@@ -4,15 +4,30 @@
 
 <h1>Counter</h1>
 
-<p role="status">Current count: @currentCount</p>
+<p role="status">Current Fibonacci count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    private int currentCount = 0;
+    private int currentCount = 5;
 
     private void IncrementCount()
     {
-        currentCount++;
+        //currentCount++;
+        currentCount = new Fibonacci().Fib(currentCount);
+    }
+    public class Fibonacci
+    {
+        public int Fib(int n)
+        {
+            double sqrt5 = Math.Sqrt(5);
+            double p1 = (1 + sqrt5) / 2;
+            double p2 = -1 * (p1 - 1);
+
+
+            double n1 = Math.Pow(p1, n + 1);
+            double n2 = Math.Pow(p2, n + 1);
+            return (int)((n1 - n2) / sqrt5);
+        }
     }
 }
