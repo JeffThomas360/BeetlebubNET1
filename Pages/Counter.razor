@@ -14,20 +14,15 @@
     private void IncrementCount()
     {
         //currentCount++;
-        currentCount = new Fibonacci().Fib(currentCount);
+        currentCount = Convert.ToInt16(new Fibonacci().Fib(currentCount));
+
     }
     public class Fibonacci
     {
-        public int Fib(int n)
+        public long Fib(int n)
         {
-            double sqrt5 = Math.Sqrt(5);
-            double p1 = (1 + sqrt5) / 2;
-            double p2 = -1 * (p1 - 1);
-
-
-            double n1 = Math.Pow(p1, n + 1);
-            double n2 = Math.Pow(p2, n + 1);
-            return (int)((n1 - n2) / sqrt5);
-        }
+            double a = n * (1 + Math.Sqrt(5)) / 2.0;
+            return (long)Math.Round(a);
+    }
     }
 }
