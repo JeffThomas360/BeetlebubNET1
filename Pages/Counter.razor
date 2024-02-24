@@ -9,17 +9,17 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    private int currentCount = 5;
+    private Int64 currentCount = 5;
 
     private void IncrementCount()
     {
         //currentCount++;
-        currentCount = Convert.ToInt16(new Fibonacci().Fib(currentCount));
+        currentCount = new Fibonacci().Fib(currentCount);
 
     }
     public class Fibonacci
     {
-        public long Fib(int n)
+        public long Fib(Int64 n)
         {
             double a = n * (1 + Math.Sqrt(5)) / 2.0;
             return (long)Math.Round(a);
